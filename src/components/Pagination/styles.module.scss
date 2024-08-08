@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-weight: bold;
+  color: #ffff;
+
+  button {
+    padding: 0.6rem;
+    background: #c5c0c0;
+    border: none;
+    cursor: pointer;
+    color: #f7f7f7;
+    border-radius: 0.5rem;
+    font-size: 16px;
+  }
+
+  button:hover {
+    transition-duration: 0.3s;
+    transform: scale(1.1);
+  }
+
+  button[disabled] {
+    cursor: no-drop;
+    background: #383a4b;
+  }
+}

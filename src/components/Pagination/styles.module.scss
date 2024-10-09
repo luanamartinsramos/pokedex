@@ -1,3 +1,14 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding-bottom: 80px;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -8,11 +19,12 @@
   color: #ffffff;
   background-color: #2a2b3c;
   border-radius: 0.5rem;
-  position: fixed;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  margin-top: auto;
 
   button {
     padding: 0.6rem 1rem;

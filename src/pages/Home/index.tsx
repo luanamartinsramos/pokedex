@@ -15,27 +15,36 @@ export default function Home() {
   const perPage = 12;
 
   return (
-    <div className={styles.home}>
-      <header>
-        <div onClick={backToHome}>
-          <PokeballIconSmall />
-          <span>Pokédex</span>
-        </div>
-      </header>
-      <Filters />
-      <PokemonList
-        page={page}
-        perPage={perPage}
-        pokemonsUrls={pokemonsFiltered}
-      />
-      <Pagination
-        page={page}
-        perPage={perPage}
-        nextPage={nextPage}
-        previousPage={previousPage}
-        maxItems={pokemonsFiltered?.length}
-        goToPage={changePage}
-      />
+    <div className={styles.pageContainer}>
+      {" "}
+      {}
+      <div className={styles.content}>
+        {" "}
+        {}
+        <header>
+          <div onClick={backToHome}>
+            <PokeballIconSmall />
+            <span>Pokédex</span>
+          </div>
+        </header>
+        <Filters />
+        <PokemonList
+          page={page}
+          perPage={perPage}
+          pokemonsUrls={pokemonsFiltered}
+        />
+      </div>
+      {}
+      <div className={styles.pagination}>
+        <Pagination
+          page={page}
+          perPage={perPage}
+          nextPage={nextPage}
+          previousPage={previousPage}
+          maxItems={pokemonsFiltered?.length ?? 0}
+          goToPage={changePage}
+        />
+      </div>
     </div>
   );
 }

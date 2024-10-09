@@ -5,7 +5,7 @@ interface Props {
   page: number;
   nextPage: () => void;
   previousPage: () => void;
-  maxItems: number | undefined;
+  maxItems: number;
   goToPage: (page: number) => void;
 }
 
@@ -35,9 +35,7 @@ export const Pagination = ({
         <button
           key={pageNumber}
           onClick={() => goToPage(pageNumber)}
-          className={`${styles.pageButton} ${
-            pageNumber === page ? styles.active : ""
-          }`}
+          className={`${pageNumber === page ? styles.active : ""}`}
         >
           {pageNumber}
         </button>

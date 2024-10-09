@@ -2,28 +2,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
   padding: 1rem 0;
   font-weight: bold;
-  color: #ffff;
+  color: #ffffff;
+  background-color: #2a2b3c;
+  border-radius: 0.5rem;
 
   button {
-    padding: 0.6rem;
-    background: #c5c0c0;
+    padding: 0.6rem 1rem;
+    background-color: #575a6a;
     border: none;
     cursor: pointer;
-    color: #f7f7f7;
+    color: #ffffff;
     border-radius: 0.5rem;
     font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover:not([disabled]) {
+      background-color: #707486;
+      transform: translateY(-2px);
+    }
+
+    &:active:not([disabled]) {
+      transform: translateY(0);
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: #383a4b;
+      color: #aaaaaa;
+    }
   }
 
-  button:hover {
-    transition-duration: 0.3s;
-    transform: scale(1.1);
+  .active {
+    background-color: #4f5265;
+    color: #ffffff;
+    cursor: default;
   }
 
-  button[disabled] {
-    cursor: no-drop;
-    background: #383a4b;
+  .active {
+    background: #0c2d53c4;
+    color: #ffffff;
   }
 }

@@ -9,7 +9,8 @@ import styles from "./styles.module.scss";
 
 export default function Home() {
   const { pokemonsFiltered } = usePokemon();
-  const { page, nextPage, previousPage, backToHome } = usePagination();
+  const { page, nextPage, previousPage, changePage, backToHome } =
+    usePagination();
 
   const perPage = 12;
 
@@ -33,6 +34,7 @@ export default function Home() {
         nextPage={nextPage}
         previousPage={previousPage}
         maxItems={pokemonsFiltered?.length}
+        goToPage={changePage}
       />
     </div>
   );

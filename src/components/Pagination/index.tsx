@@ -6,6 +6,7 @@ interface Props {
   nextPage: () => void;
   previousPage: () => void;
   maxItems: number | undefined;
+  goToPage: (page: number) => void;
 }
 
 export const Pagination = ({
@@ -14,17 +15,39 @@ export const Pagination = ({
   nextPage,
   previousPage,
   maxItems,
+  goToPage,
 }: Props) => {
   const lastPage = Math.ceil(maxItems! / perPage);
+  const pageNumbers = Array.from({ length: 7 }, (_, i) => page - 3 + i).filter(
+    (p) => p > 0 && p <= lastPage
+  );
 
   return (
     <div className={styles.pagination}>
+      <button onClick={() => goToPage(1)} disabled={page === 1}>
+        First
+      </button>
       <button disabled={page === 1} onClick={previousPage}>
         &lt;
       </button>
-      <span>{page}</span>
+
+      {pageNumbers.map((pageNumber) => (
+        <button
+          key={pageNumber}
+          onClick={() => goToPage(pageNumber)}
+          className={`${styles.pageButton} ${
+            pageNumber === page ? styles.active : ""
+          }`}
+        >
+          {pageNumber}
+        </button>
+      ))}
+
       <button disabled={page === lastPage} onClick={nextPage}>
         &gt;
+      </button>
+      <button onClick={() => goToPage(lastPage)} disabled={page === lastPage}>
+        Last
       </button>
     </div>
   );

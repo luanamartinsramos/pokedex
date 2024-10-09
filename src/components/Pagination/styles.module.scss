@@ -8,6 +8,11 @@
   color: #ffffff;
   background-color: #2a2b3c;
   border-radius: 0.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 
   button {
     padding: 0.6rem 1rem;
@@ -36,13 +41,8 @@
   }
 
   .active {
-    background-color: #4f5265;
+    background-color: #0c2d53c4;
     color: #ffffff;
     cursor: default;
-  }
-
-  .active {
-    background: #0c2d53c4;
-    color: #ffffff;
   }
 }

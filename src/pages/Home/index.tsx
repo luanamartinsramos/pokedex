@@ -17,6 +17,7 @@ export default function Home() {
     <div className={styles.home}>
       <header>
         <div onClick={backToHome}></div>
+        <h1>Pokedex</h1>
       </header>
       <div className={styles.pageContainer}>
         <div className={styles.content}>

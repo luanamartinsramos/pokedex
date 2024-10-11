@@ -1,4 +1,3 @@
-import { PokeballIconSmall } from "../../assets/svg/pokeball";
 import { Filters } from "../../components/Filters";
 import { Pagination } from "../../components/Pagination";
 import { PokemonList } from "../../components/PokemonList";
@@ -15,35 +14,29 @@ export default function Home() {
   const perPage = 12;
 
   return (
-    <div className={styles.pageContainer}>
-      {" "}
-      {}
-      <div className={styles.content}>
-        {" "}
-        {}
-        <header>
-          <div onClick={backToHome}>
-            <PokeballIconSmall />
-            <span>Pokédex</span>
-          </div>
-        </header>
-        <Filters />
-        <PokemonList
-          page={page}
-          perPage={perPage}
-          pokemonsUrls={pokemonsFiltered}
-        />
-      </div>
-      {}
-      <div className={styles.pagination}>
-        <Pagination
-          page={page}
-          perPage={perPage}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          maxItems={pokemonsFiltered?.length ?? 0}
-          goToPage={changePage}
-        />
+    <div className={styles.home}>
+      <header>
+        <div onClick={backToHome}></div>
+      </header>
+      <div className={styles.pageContainer}>
+        <div className={styles.content}>
+          <Filters />
+          <PokemonList
+            page={page}
+            perPage={perPage}
+            pokemonsUrls={pokemonsFiltered}
+          />
+        </div>
+        <div className={styles.pagination}>
+          <Pagination
+            page={page}
+            perPage={perPage}
+            nextPage={nextPage}
+            previousPage={previousPage}
+            maxItems={pokemonsFiltered?.length ?? 0}
+            goToPage={changePage}
+          />
+        </div>
       </div>
     </div>
   );

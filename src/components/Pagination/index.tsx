@@ -17,35 +17,54 @@ export const Pagination = ({
   maxItems,
   goToPage,
 }: Props) => {
-  const lastPage = Math.ceil(maxItems! / perPage);
+  const lastPage = Math.ceil(maxItems / perPage);
+
   const pageNumbers = Array.from({ length: 7 }, (_, i) => page - 3 + i).filter(
     (p) => p > 0 && p <= lastPage
   );
 
   return (
     <div className={styles.pagination}>
-      <button onClick={() => goToPage(1)} disabled={page === 1}>
-        First
+      <button
+        className={styles.arrowButton}
+        onClick={() => goToPage(1)}
+        disabled={page === 1}
+      >
+        -
       </button>
-      <button disabled={page === 1} onClick={previousPage}>
+      <button
+        className={styles.arrowButton}
+        disabled={page === 1}
+        onClick={previousPage}
+      >
         &lt;
       </button>
 
-      {pageNumbers.map((pageNumber) => (
+      {pageNumbers.map((number) => (
         <button
-          key={pageNumber}
-          onClick={() => goToPage(pageNumber)}
-          className={`${pageNumber === page ? styles.active : ""}`}
+          key={number}
+          onClick={() => goToPage(number)}
+          className={`${styles.paginationButton} ${
+            number === page ? styles.currentButton : ""
+          } ${number === page ? styles.active : ""}`}
         >
-          {pageNumber}
+          {number}
         </button>
       ))}
 
-      <button disabled={page === lastPage} onClick={nextPage}>
+      <button
+        className={styles.arrowButton}
+        disabled={page === lastPage}
+        onClick={nextPage}
+      >
         &gt;
       </button>
-      <button onClick={() => goToPage(lastPage)} disabled={page === lastPage}>
-        Last
+      <button
+        className={styles.arrowButton}
+        onClick={() => goToPage(lastPage)}
+        disabled={page === lastPage}
+      >
+        +
       </button>
     </div>
   );

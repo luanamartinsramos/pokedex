@@ -1,60 +1,89 @@
-.pageContainer {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content {
-  flex: 1;
-  padding-bottom: 80px;
-}
-
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
-  padding: 1rem 0;
+  padding: 0rem 1rem;
   font-weight: bold;
   color: #ffffff;
-  background-color: #2a2b3c;
   border-radius: 0.5rem;
   position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
-  margin-top: auto;
+  margin: 1rem auto;
+  width: auto;
+  max-width: 90%;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
 
-  button {
-    padding: 0.6rem 1rem;
-    background-color: #575a6a;
-    border: none;
-    cursor: pointer;
-    color: #ffffff;
-    border-radius: 0.5rem;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.pagination button {
+  padding: 0.6rem 1rem;
+  font-size: 16px;
 
-    &:hover:not([disabled]) {
-      background-color: #707486;
-      transform: translateY(-2px);
-    }
-
-    &:active:not([disabled]) {
-      transform: translateY(0);
-    }
-
-    &[disabled] {
-      cursor: not-allowed;
-      background-color: #383a4b;
-      color: #aaaaaa;
-    }
+  @media (max-width: 1200px) {
+    padding: 0.5rem 0.8rem;
+    font-size: 14px;
   }
 
-  .active {
-    background-color: #0c2d53c4;
-    color: #ffffff;
-    cursor: default;
+  @media (max-width: 900px) {
+    padding: 0.4rem 0.6rem;
+    font-size: 12px;
   }
+
+  @media (max-width: 600px) {
+    padding: 0.3rem 0.5rem;
+    font-size: 10px;
+  }
+
+  @media (max-width: 550px) {
+    &.paginationButton {
+      display: none;
+    }
+
+    .arrowButton {
+      display: inline-block;
+    }
+
+    &.currentButton {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: 551px) {
+  .paginationButton {
+    display: inline-block;
+  }
+}
+
+button {
+  padding: 0.6rem 1rem;
+  background-color: #575a6a;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover:not([disabled]) {
+    background-color: #707486;
+    transform: translateY(-2px);
+  }
+
+  &:active:not([disabled]) {
+    transform: translateY(0);
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: #383a4b;
+    color: #aaaaaa;
+  }
+}
+
+.active {
+  background-color: #0c2d53c4;
+  color: #ffffff;
+  cursor: default;
 }

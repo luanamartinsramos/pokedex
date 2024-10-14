@@ -28,16 +28,16 @@ export default function Home() {
             pokemonsUrls={pokemonsFiltered}
           />
         </div>
-        <div className={styles.pagination}>
-          <Pagination
-            page={page}
-            perPage={perPage}
-            nextPage={nextPage}
-            previousPage={previousPage}
-            maxItems={pokemonsFiltered?.length ?? 0}
-            goToPage={changePage}
-          />
-        </div>
+      </div>
+      <div className={styles.pagination}>
+        <Pagination
+          page={page}
+          perPage={perPage}
+          nextPage={nextPage}
+          previousPage={previousPage}
+          maxItems={pokemonsFiltered?.length ?? 0}
+          goToPage={changePage}
+        />
       </div>
     </div>
   );
